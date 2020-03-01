@@ -21,8 +21,7 @@ There are two datasets provided for the project: **Song Dataset** and **Log Data
 ## Database Schema
 For the database a star schema is being used, with one fact table (*songplays*) and four dimension tables (*users*, *artists*, *songs* and *time*). The primary keys of dimension tables are foreign keys in the fact table.
 
-### Start Schema 
-
+### ![Star Schema](https://raw.githubusercontent.com/kpranke/data_engieneer_nanodegree/master/Project%20-%20Data%20Modeling%20with%20Postgres/Sparkify%20star%20schema.png) 
 ### Data Description
 #### Fact table:
 **songplays**
