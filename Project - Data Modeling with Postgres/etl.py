@@ -4,20 +4,23 @@ import psycopg2
 import pandas as pd
 from sql_queries import *
 
-
+# function to read the song logs and insert them to song and artist tables
 def process_song_file(cur, filepath):
     # open song file
     df = pd.read_json(filepath, lines=True)
     
-    # insert artist record
+    for value in df.values:
+        artist_id, artist_latitude, artist_location, artist_longitude, artist_name, duration, num_songs, song_id, title, year = value
 
-    artist_data = [artist_id, artist_name, artist_location, artist_longitude, artist_latitude]
-    cur.execute(artist_table_insert, artist_data)
+        # insert song record
+        song_data = [song_id, title, artist_id, year, duration]
+        cur.execute(song_table_insert, song_data)
+    
+        # insert artist record
+        artist_data = [artist_id, artist_name, artist_location, artist_longitude, artist_latitude]
+        cur.execute(artist_table_insert, artist_data)
 
-    # insert song record
-    song_data = [song_id, title, artist_id, year, duration]
-    cur.execute(song_table_insert, song_data)
-
+# function to read user activity logs and insert them to the tables: time, user and songplay
 def process_log_file(cur, filepath):
     # open log file
     df =  pd.read_json(filepath, lines=True)
@@ -31,7 +34,7 @@ def process_log_file(cur, filepath):
     # insert time data records
     time_data = []
     for a in t:
-    time_data.append([a, a.hour, a.day, a.week, a.month, a.year, a.day_name()])
+        time_data.append([a, a.hour, a.day, a.week, a.month, a.year, a.day_name()])
     column_labels = ('start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday')
     time_df = pd.DataFrame.from_records(time_data, columns=column_labels)
 

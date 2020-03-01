@@ -1,7 +1,7 @@
 ## Data Engineer Nanodegree 
 # Project: Data Modeling with Postgres
 *Author: Katarzyna Pranke 
-[Linkedin](https://www.linkedin.com/in/kpranke/) GitHub* 
+[Linkedin](https://www.linkedin.com/in/kpranke/) [GitHub](https://github.com/kpranke) 
 
 This is the first project of the Data Engineer Nanodegree at Udacity.
 

@@ -34,7 +34,7 @@ song_table_create = ("""
     CREATE TABLE IF NOT EXISTS songs 
     (song_id VARCHAR PRIMARY KEY,
     title VARCHAR,
-    artist_id VARCHAR REFERENCES artists(artist_id),
+    artist_id VARCHAR,
     year INT,
     duration FLOAT)
 """)
