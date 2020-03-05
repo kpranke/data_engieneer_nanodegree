@@ -8,22 +8,29 @@ This is the first project of the Data Engineer Nanodegree at Udacity.
 The aim of this task is to put into practise knowledge on data modeling with Postgres and building an ETL pipeline using Python.
 
 ## Introduction
+
 A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
 
 They'd like a data engineer to create a Postgres database with tables designed to optimize queries on song play analysis, and bring you on the project. Your role is to create a database schema and ETL pipeline for this analysis. You'll be able to test your database and ETL pipeline by running queries given to you by the analytics team from Sparkify and compare your results with their expected results.
 
 ## Project Description
+
 In this project, you'll apply what you've learned on data modeling with Postgres and build an ETL pipeline using Python. To complete the project, you will need to define fact and dimension tables for a star schema for a particular analytic focus, and write an ETL pipeline that transfers data from files in two local directories into these tables in Postgres using Python and SQL.
 
 ## Datasets
+
 There are two datasets provided for the project: **Song Dataset** and **Log Dataset**
 
 ## Database Schema
+
 For the database a star schema is being used, with one fact table (*songplays*) and four dimension tables (*users*, *artists*, *songs* and *time*). The primary keys of dimension tables are foreign keys in the fact table.
 
 ### ![Star Schema](https://raw.githubusercontent.com/kpranke/data_engieneer_nanodegree/master/Project%20-%20Data%20Modeling%20with%20Postgres/Sparkify%20star%20schema.png) 
+
 ### Data Description
+
 #### Fact table:
+
 **songplays**
 - songplay_id **PK** (ID of a song play)
 - start_time **FK** (timestamp indicating start of the activity)
@@ -36,6 +43,7 @@ For the database a star schema is being used, with one fact table (*songplays*) 
 - user_agent (agent, e.g. a browser, used by a user to access Sparkify)
 
 #### Dimension tables:
+
 **users**
 
  - user_id **PK** (user's ID)
@@ -69,10 +77,11 @@ For the database a star schema is being used, with one fact table (*songplays*) 
  - year (year subtracted from timestamp)
  - weekday (weekday subtracted from timestamp)
 
+
 ## Project's folder and files structure
 
 The project folder contains the following items:
-- *data* folder in which *log_data* and *song_data* folders can be found. This is where all the data in JSON format resides. 
+- *data* folder in which *log_data* (**Log Dataset**) and *song_data* (**Song Dataset**) folders can be found. This is where all the data in JSON format resides. 
 - *README.md* - the currently open file;  includes a summary of the project, how to run the Python scripts, and an explanation of the files in the repository
 - *sql_queries.py* - contains SQL queries
 - *create_tables.py* - connects to the Sparkify database, drops any tables if they exist, and creates the tables; used before running the ETL code
@@ -81,4 +90,17 @@ The project folder contains the following items:
 - *etl.py* - the script connects to the Sparkify database, extracts and processes the log_data and song_data, and loads data into the five tables
 
 ## Step by step instructions
+
+### Creating Tables
+
+- Wrote CREATE statements in  *sql_queries.py* to create each table.
+- Wrote DROP statements in *sql_queries.py* to drop each table if it exists.
+- Run *create_tables.py* to create your database and tables.
+- Run *test.ipynb* to confirm the creation of your tables with the correct columns. 
+- Built ETL Processes
+- Followed instructions in the *etl.ipynb* notebook to develop ETL processes for each table. At the end of each table section, or at the end of the notebook, run *test.ipynb* to confirm that records were successfully inserted into each table. 
+
+### Building ETL Pipeline
+
+- Used *etl.ipynb* to complete *etl.py* to process the entire datasets.
 
