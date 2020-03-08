@@ -91,16 +91,12 @@ The project folder contains the following items:
 
 ## Step by step instructions
 
-### Creating Tables
-
-- Wrote CREATE statements in  *sql_queries.py* to create each table.
-- Wrote DROP statements in *sql_queries.py* to drop each table if it exists.
-- Run *create_tables.py* to create your database and tables.
-- Run *test.ipynb* to confirm the creation of your tables with the correct columns. 
-- Built ETL Processes
+- Wrote DROP,CREATE and INSERT statements in  *sql_queries.py* (check if each table exist, if not create it and then perform insert).
+- Run *create_tables.py* to create database and tables.
+- Run *test.ipynb* to confirm the creation of tables with the correct columns. 
 - Followed instructions in the *etl.ipynb* notebook to develop ETL processes for each table. At the end of each table section, or at the end of the notebook, run *test.ipynb* to confirm that records were successfully inserted into each table. 
-
-### Building ETL Pipeline
-
+    * connected to the Sparkify databse
+    * sent data from song_data to a function process_song_file; extracted the song information in order to store it into the songs table and extracted the artist information in order to store it into the artists table
+    * sent data from activity logs to a function process_log_file; filtered by NexSong, selected required fields and transformed them, so they could be inserted to the tables: time, user and songplay
 - Used *etl.ipynb* to complete *etl.py* to process the entire datasets.
 
